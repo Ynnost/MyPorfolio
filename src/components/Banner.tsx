@@ -49,7 +49,7 @@ export const Banner: React.FC<BannerType> = ({}) => {
           <Col xs={12} md={7}>
             <span className="tagline">Welcome to my Portfolio</span>
             <h1>
-              {`Hi I'm webdecoded   `} <span className="wrap">{text}</span>
+              {`Hi I'm frontend developer `} <span className="wrap">{text}</span>
             </h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
