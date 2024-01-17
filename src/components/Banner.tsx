@@ -1,13 +1,13 @@
-import { Col, Container, Row } from "react-bootstrap";
-import "../App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { ArrowRightCircle } from "react-bootstrap-icons";
+import { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
-import { useEffect, useState } from "react";
+import { ArrowRightCircle } from "react-bootstrap-icons";
+import "animate.css";
+import TrackVisibility from "react-on-screen";
 
 type BannerType = {};
 
-export const Banner: React.FC<BannerType> = ({}) => {
+export const Banner: React.FC<BannerType> = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
@@ -47,17 +47,24 @@ export const Banner: React.FC<BannerType> = ({}) => {
       <Container>
         <Row className="aling-items-center">
           <Col xs={12} md={7}>
-            <span className="tagline">Welcome to my Portfolio</span>
-            <h1>
-              {`Hi I'm frontend developer `} <span className="wrap">{text}</span>
-            </h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-              text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-            <button onClick={() => console.log("connect")}>
-              Let's connect <ArrowRightCircle size={25} />
-            </button>
+            <TrackVisibility>
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <span className="tagline">Welcome to my Portfolio</span>
+                  <h1>
+                    {`Hi I'm frontend developer `} <span className="wrap">{text}</span>
+                  </h1>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book.
+                  </p>
+                  <button onClick={() => console.log("connect")}>
+                    Let's connect <ArrowRightCircle size={25} />
+                  </button>
+                </div>
+              )}
+            </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <img src={headerImg} alt="Headder Img" />

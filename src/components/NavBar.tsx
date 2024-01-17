@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Container, Nav, NavDropdown, NavLink } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Links } from "./Links";
 import "../App.css";
 import logo from "../assets/img/logo.svg";
@@ -26,7 +26,6 @@ export const NavBar = () => {
   }, []);
 
   const onUpdateActiveLink = (value: string) => {
-    console.log(value);
     setActiveLink(value);
   };
 
